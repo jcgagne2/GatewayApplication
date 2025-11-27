@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: GatewayApplication
+
+  profiles:
+    active: local
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+
+          metrics:
+            enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+#      access: unrestricted
+      enabled: true
+
+#logging:
+#  level:
+#    org.springframework.cloud.gateway: DEBUG

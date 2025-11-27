@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      # Dans docker, hostname = nom du service
+      defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
