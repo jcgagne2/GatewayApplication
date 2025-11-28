@@ -1,5 +1,27 @@
 server:
-  port: 8080
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          my-oidc-client:
+            provider: my-keycloak
+            client-id: gateway-client-docker
+            client-secret: eOmsZqFzdXxJUY9q5FoBkIgE0s4XWjLY
+            authorization-grant-type: authorization_code
+            scope: openid,profile
+        provider:
+          my-keycloak:
+            issuer-uri: http://keycloak:8080/realms/my-realm
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
 
 eureka:
   client:
@@ -10,12 +32,3 @@ eureka:
   instance:
     preferIpAddress: true
 
-
-spring:
-  cloud:
-    gateway:
-      server:
-        webflux:
-          discovery:
-            locator:
-              enabled: true

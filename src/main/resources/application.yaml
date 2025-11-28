@@ -1,6 +1,7 @@
 spring:
   application:
     name: GatewayApplication
+    version: 1.0.0
 
   profiles:
     active: local
@@ -15,6 +16,20 @@ spring:
 
           metrics:
             enabled: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          my-oidc-client:
+            provider: my-keycloak
+            client-id: gateway-client
+            client-secret: lNqo5BYxNrQbnDau2A5YHFPYodtGkV02
+            authorization-grant-type: authorization_code
+            scope: openid,profile
+        provider:
+          my-keycloak:
+            issuer-uri: http://localhost:8090/realms/my-realm
 
 management:
   endpoints:
