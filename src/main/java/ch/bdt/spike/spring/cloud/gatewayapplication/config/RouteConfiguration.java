@@ -26,29 +26,9 @@ class RouteConfiguration {
                       .route("currency-converter",
                              r -> r.path("/cc/**") // Predicate: Intercepte les requêtes PATH qui correspondent à /cc/...
                                    .filters(f -> f.stripPrefix(1)) // Filter: Supprime le premier segment de l'URI (/cc) avant de router
-                                   // Équivalent à .before(stripPrefix(1))
-                                   .uri("http://localhost:8081"))  // URI: Route la requête modifiée vers ce service
+                                   .uri("http://currency-converter:8080"))  // URI: Route la requête modifiée vers ce service
                       .build();
     }
-
-    //@Bean
-    //public RouterFunction<ServerResponse> myRoutes() {
-    //    // Route 1: /get
-    //    RouterFunction<ServerResponse> route1 = route("tutu-get")
-    //            .route(RequestPredicates.GET("/get"), http())
-    //            .before(uri("http://httpbin.org"))
-    //            .build();
-    //
-    //    // Route 2: /cc/**
-    //    RouterFunction<ServerResponse> route2 = route("tutu-cc")
-    //            .route(RequestPredicates.path("/cc/**"), http())
-    //            .before(stripPrefix(1))
-    //            .before(uri("http://localhost:8081"))
-    //            .build();
-    //
-    //    // Combinaison des routes
-    //    return route1.and(route2);
-    //}
 
 
 }

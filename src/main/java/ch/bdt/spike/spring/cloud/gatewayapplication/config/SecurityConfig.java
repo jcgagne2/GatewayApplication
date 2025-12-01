@@ -8,6 +8,7 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 @Configuration
 @EnableWebFluxSecurity
@@ -35,6 +36,11 @@ public class SecurityConfig {
         return http.build();
     }
 
+    //@Bean
+    //public HttpSessionEventPublisher httpSessionEventPublisher() {
+    //    return new HttpSessionEventPublisher();
+    //}
+    //
     //@Bean
     //public String myDummyBean() {
     //    throw new RuntimeException("Dummy bean");
