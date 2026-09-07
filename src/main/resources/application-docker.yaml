@@ -15,7 +15,7 @@ spring:
           my-oidc-client:
             provider: my-keycloak
             client-id: gateway-client-docker
-            client-secret: eOmsZqFzdXxJUY9q5FoBkIgE0s4XWjLY
+            client-secret: VRBDgwUCtQZCsbcAQrNjy1ueqtNqF9Y6
             authorization-grant-type: authorization_code
             scope: openid,profile
         provider:
